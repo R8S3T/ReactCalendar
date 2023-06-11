@@ -46,13 +46,21 @@ gridContainer.appendChild(dayRecipeContainer);
 // CREATE CALENDAR
 
 // Header
-
 const header = document.createElement('div');
 header.classList.add('bg-grey-200');
-header.textContent = 'Header';
+/* header.textContent = 'Header'; */
 calendarContainer.appendChild(header);
 
+// Previous and Next Button
+const prevBtn = document.createElement('button');
+prevBtn.id = 'prevBtn';
+prevBtn.textContent = '< Prev';
+header.appendChild(prevBtn);
 
+const nextBtn = document.createElement('button');
+nextBtn.id = 'nextBtn';
+nextBtn.textContent = 'Next >';
+header.appendChild(nextBtn);
 
 
 
