@@ -14,8 +14,10 @@ gridContainerWrapper.appendChild(gridContainer);
 // Append the wrapper to the document body
 document.body.appendChild(gridContainerWrapper);
 
+
 // Calendar container
 const calendarContainer = document.createElement('div');
+calendarContainer.id = 'calendar';
 calendarContainer.classList.add('col-span-1','bg-my-blue', 'p-4', 'h-64');
 calendarContainer.textContent = 'Calendar Container';
 
@@ -26,12 +28,12 @@ dayRecipeContainer.classList.add('col-span-1', 'h-64', 'flex', 'flex-col');
 // Day Container
 const dayContainer1 = document.createElement('div');
 dayContainer1.classList.add('bg-my-green', 'p-4', 'row-span-1', 'flex-grow');
-dayContainer1.textContent = 'Day Container 1';
+dayContainer1.textContent = 'Day Container';
 
 // Recipe Container
 const recipeContainer2 = document.createElement('div');
 recipeContainer2.classList.add('bg-gray-200', 'p-4', 'mt-4', 'flex-grow');
-recipeContainer2.textContent = 'Recipe Container 2';
+recipeContainer2.textContent = 'Recipe Container';
 
 // Append day and recipe container to dayRecipeContainer
 dayRecipeContainer.appendChild(dayContainer1);
@@ -41,7 +43,14 @@ gridContainer.appendChild(calendarContainer);
 gridContainer.appendChild(dayRecipeContainer);
 
 
-// Create Calendar
+// CREATE CALENDAR
+
+// Header
+
+const header = document.createElement('div');
+header.classList.add('bg-grey-200');
+header.textContent = 'Header';
+calendarContainer.appendChild(header);
 
 
 
