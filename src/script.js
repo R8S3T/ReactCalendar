@@ -7,7 +7,7 @@ gridContainerWrapper.classList.add('p-6');
 
 // Grid container
 const gridContainer = document.createElement('div');
-gridContainer.classList.add('grid', 'grid-cols-2', 'grid-rows-2', 'gap-2', 'bg-grey-100');
+gridContainer.classList.add('flex', 'flex-col', 'grid', 'grid-cols-2', 'grid-rows-2', 'gap-2', 'bg-grey-100', 'h-screen');
 
 
 // Append grid container to wrapper container
@@ -21,13 +21,13 @@ document.body.appendChild(gridContainerWrapper);
 // Calendar container
 const calendarContainer = document.createElement('div');
 calendarContainer.id = 'calendar';
-calendarContainer.classList.add('col-span-1','bg-my-blue', 'p-4', 'h-64');
-calendarContainer.textContent = 'Calendar Container';
+calendarContainer.classList.add('col-span-1','bg-my-blue', 'p-4', 'flex-grow');
+
 
 
 // Day-Recipe-Container
 const dayRecipeContainer = document.createElement('div');
-dayRecipeContainer.classList.add('col-span-1', 'h-64', 'flex', 'flex-col');
+dayRecipeContainer.classList.add('col-span-1','flex', 'flex-col', 'flex-grow');
 
 
 // Day Container
@@ -54,7 +54,7 @@ gridContainer.appendChild(dayRecipeContainer);
 
 // Header
 const header = document.createElement('div');
-header.classList.add('bg-grey-200');
+header.classList.add('flex', 'justify-between', 'bg-grey-200');
 /* header.textContent = 'Header'; */
 calendarContainer.appendChild(header);
 
@@ -96,6 +96,7 @@ header.appendChild(nextBtn);
 
 // calendar table
 const table = document.createElement('table');
+table.classList.add('w-full', 'h-full');
 calendarContainer.appendChild(table);
 
 
@@ -114,7 +115,7 @@ function days() {
     daysofWeek.forEach((day) => {
         const th = document.createElement('th');
         th.textContent = day;
-        th.classList.add('bg-my-grey')
+        th.classList.add('bg-my-grey', 'p-4', 'text-center');
         headerRow.appendChild(th);
     });
 }
@@ -151,6 +152,7 @@ function generateCalendar() {
 
         for (let day = 0; day < 7; day++) {
         const cell = document.createElement('td');
+        cell.classList.add('text-center');
 
         if (week === 0 && day < firstDay) {
             // Empty cells before the first day
@@ -190,6 +192,7 @@ nextBtn.addEventListener('click', () => {
     currentDate.setMonth(currentDate.getMonth() + 1);
     generateCalendar();
 })
+
 generateCalendar();
 
 
