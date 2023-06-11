@@ -4,14 +4,7 @@
 
 
 /* Custom CSS */
-.calendar-row {
-    @apply bg-my-blue;
-}
 
-.calendar-cell {
-    @apply p-16 border-4 border-my-green text-my-green text-4xl;
-}
 
-.calendar-container {
-    @apply flex justify-center items-center mt-8;
-}
+
+

@@ -522,31 +522,131 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+.col-span-1 {
+  grid-column: span 1 / span 1;
+}
+
+.row-span-1 {
+  grid-row: span 1 / span 1;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
 .table {
   display: table;
 }
 
-/* Custom CSS */
+.grid {
+  display: grid;
+}
 
-.calendar-row {
+.h-64 {
+  height: 16rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-rows-2 {
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.border-4 {
+  border-width: 4px;
+}
+
+.border-my-blue {
+  --tw-border-opacity: 1;
+  border-color: rgb(102 139 164 / var(--tw-border-opacity));
+}
+
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+
+.bg-my-blue {
   --tw-bg-opacity: 1;
   background-color: rgb(102 139 164 / var(--tw-bg-opacity));
 }
 
-.calendar-cell {
-  border-width: 4px;
-  --tw-border-opacity: 1;
-  border-color: rgb(151 203 169 / var(--tw-border-opacity));
-  padding: 4rem;
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-  --tw-text-opacity: 1;
-  color: rgb(151 203 169 / var(--tw-text-opacity));
+.bg-my-green {
+  --tw-bg-opacity: 1;
+  background-color: rgb(167 188 185 / var(--tw-bg-opacity));
 }
 
-.calendar-container {
-  margin-top: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.p-4 {
+  padding: 1rem;
 }
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.text-my-blue {
+  --tw-text-opacity: 1;
+  color: rgb(102 139 164 / var(--tw-text-opacity));
+}
+
+/* Custom CSS */
+
+
+
+
