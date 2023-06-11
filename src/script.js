@@ -51,7 +51,7 @@ header.classList.add('bg-grey-200');
 /* header.textContent = 'Header'; */
 calendarContainer.appendChild(header);
 
-// Previous and Next Button
+// Previous Button
 const prevBtn = document.createElement('button');
 prevBtn.id = 'prevBtn';
 prevBtn.textContent = '< Prev';
@@ -63,12 +63,35 @@ monthYear.id = 'monthYear';
 monthYear.textContent = ' Month/ Year';
 header.appendChild(monthYear);
 
+// Next Button
 const nextBtn = document.createElement('button');
 nextBtn.id = 'nextBtn';
 nextBtn.textContent = 'Next >';
 header.appendChild(nextBtn);
 
+// calendar table
+const table = document.createElement('table');
+calendarContainer.appendChild(table);
 
+// Table header for days of the week
+const tHead = document.createElement('thead');
+table.appendChild(tHead);
+
+const headerRow = document.createElement('tr');
+headerRow.classList.add('bg-my-green')
+tHead.appendChild(headerRow);
+
+// Function to create the days of a week
+function days() {
+    const daysofWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    daysofWeek.forEach((day) => {
+        const th = document.createElement('th');
+        th.textContent = day;
+        th.classList.add('bg-my-grey')
+        headerRow.appendChild(th);
+    });
+}
+days();
 
 // Create table and append to calendar container
 /* function createTable(rows, columns) {
