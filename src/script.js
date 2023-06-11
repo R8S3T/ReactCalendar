@@ -4,12 +4,15 @@
 const gridContainerWrapper = document.createElement('div');
 gridContainerWrapper.classList.add('p-6');
 
+
 // Grid container
 const gridContainer = document.createElement('div');
 gridContainer.classList.add('grid', 'grid-cols-2', 'grid-rows-2', 'gap-2', 'bg-grey-100');
 
+
 // Append grid container to wrapper container
 gridContainerWrapper.appendChild(gridContainer);
+
 
 // Append the wrapper to the document body
 document.body.appendChild(gridContainerWrapper);
@@ -21,19 +24,23 @@ calendarContainer.id = 'calendar';
 calendarContainer.classList.add('col-span-1','bg-my-blue', 'p-4', 'h-64');
 calendarContainer.textContent = 'Calendar Container';
 
+
 // Day-Recipe-Container
 const dayRecipeContainer = document.createElement('div');
 dayRecipeContainer.classList.add('col-span-1', 'h-64', 'flex', 'flex-col');
+
 
 // Day Container
 const dayContainer1 = document.createElement('div');
 dayContainer1.classList.add('bg-my-green', 'p-4', 'row-span-1', 'flex-grow');
 dayContainer1.textContent = 'Day Container';
 
+
 // Recipe Container
 const recipeContainer2 = document.createElement('div');
 recipeContainer2.classList.add('bg-gray-200', 'p-4', 'mt-4', 'flex-grow');
 recipeContainer2.textContent = 'Recipe Container';
+
 
 // Append day and recipe container to dayRecipeContainer
 dayRecipeContainer.appendChild(dayContainer1);
@@ -57,11 +64,28 @@ prevBtn.id = 'prevBtn';
 prevBtn.textContent = '< Prev';
 header.appendChild(prevBtn);
 
-// Display Month and Year
+// Create Monbths array
+const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+];
+
+
 const monthYear = document.createElement('h2');
 monthYear.id = 'monthYear';
 monthYear.textContent = ' Month/ Year';
 header.appendChild(monthYear);
+
 
 // Next Button
 const nextBtn = document.createElement('button');
@@ -69,9 +93,11 @@ nextBtn.id = 'nextBtn';
 nextBtn.textContent = 'Next >';
 header.appendChild(nextBtn);
 
+
 // calendar table
 const table = document.createElement('table');
 calendarContainer.appendChild(table);
+
 
 // Table header for days of the week
 const tHead = document.createElement('thead');
@@ -80,6 +106,7 @@ table.appendChild(tHead);
 const headerRow = document.createElement('tr');
 headerRow.classList.add('bg-my-green')
 tHead.appendChild(headerRow);
+
 
 // Function to create the days of a week
 function days() {
@@ -92,6 +119,71 @@ function days() {
     });
 }
 days();
+
+
+// Get the current date
+const currentDate = new Date();
+
+// Table body
+const tbody = document.createElement("tbody");
+tbody.id = "calendarBody";
+table.appendChild(tbody);
+
+// Calendar Function
+function generateCalendar() {
+    tbody.innerHTML = '';
+
+    // Current month and year
+    const month = currentDate.getMonth();
+    const year = currentDate.getFullYear();
+
+    // Update Month/ Year display
+    monthYear.textContent = `${months[month]} ${year}`;
+
+    // Get the first day and last day of the month
+    const firstDay = new Date(year, month, 0).getDay();
+    const lastDay = new Date(year, month + 1, 0).getDate();
+
+    // Generate calendar days
+    let date = 1;
+    for (let week = 0; week < 6; week++) {
+        const row = document.createElement('tr');
+
+        for (let day = 0; day < 7; day++) {
+        const cell = document.createElement('td');
+
+        if (week === 0 && day < firstDay) {
+            // Empty cells before the first day
+            cell.textContent = '';
+        } else if (date > lastDay) {
+            // Empty cells after the last day
+            cell.textContent = '';
+        } else {
+            // Fill in the date
+            cell.textContent = date;
+            if (
+            date === currentDate.getDate() &&
+            month === currentDate.getMonth() &&
+            year === currentDate.getFullYear()
+            ) {
+            // Highlight the current date
+            cell.classList.add('current');
+            }
+            date++;
+        }
+
+        row.appendChild(cell);
+        }
+
+        tbody.appendChild(row);
+    }
+}
+generateCalendar();
+
+
+
+
+
 
 // Create table and append to calendar container
 /* function createTable(rows, columns) {
