@@ -178,6 +178,18 @@ function generateCalendar() {
         tbody.appendChild(row);
     }
 }
+
+// event listener for prev button
+prevBtn.addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    generateCalendar();
+});
+
+// event listener for next month
+nextBtn.addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    generateCalendar();
+})
 generateCalendar();
 
 
