@@ -57,6 +57,12 @@ prevBtn.id = 'prevBtn';
 prevBtn.textContent = '< Prev';
 header.appendChild(prevBtn);
 
+// Display Month and Year
+const monthYear = document.createElement('h2');
+monthYear.id = 'monthYear';
+monthYear.textContent = ' Month/ Year';
+header.appendChild(monthYear);
+
 const nextBtn = document.createElement('button');
 nextBtn.id = 'nextBtn';
 nextBtn.textContent = 'Next >';
